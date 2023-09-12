@@ -4,3 +4,6 @@
     border-radius: 10px;
     padding: 15px;
 }
+.visited{
+    background-color: chartreuse;
+}
