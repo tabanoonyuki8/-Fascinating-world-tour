@@ -1,13 +1,14 @@
 
 import { useState } from 'react';
 import './Country.css'
+import CountryDetail from '../CountryDetail/CountryDetail';
 const Country = ({ country, handleVisitedCountry}) => {
    
 const [visited,setVisited]=useState(false);
 const handleVisited =()=>{
-    setVisited(!visited);
+    setVisited(!visited); //handle going visited button
 }
-const passWithParam=()=>{
+const passWithParam=()=>{ //mark visited funtion call with arrow function
     handleVisitedCountry(country);
 }
 
@@ -20,13 +21,18 @@ const passWithParam=()=>{
             <p><small>Code: {country?.cca3}</small></p>
             <button onClick={passWithParam}>Mark visited</button>
             < br />
-            <button onClick={handleVisited}>{visited ?"Visited" : "Going"}</button>
+            <button onClick={handleVisited}>{visited ?"Visited" : "Going"}</button> 
             {
                 visited ? "I have visited this country " : 
                 
                 
                 "I want to visit"
             }
+            <hr />
+            <CountryDetail
+            country ={country}
+            handleVisitedCountry={handleVisitedCountry}
+            ></CountryDetail>
         </div>
        
     );
